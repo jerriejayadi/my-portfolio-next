@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useTheme } from "next-themes";
 import {
   ArrowDown,
@@ -12,15 +12,13 @@ import {
 } from "iconsax-react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
-import NavMenu from "../NavMenu";
 
 interface NavItem {
   label: string;
   url: string;
 }
 
-export const NAV_ITEMS: Array<NavItem> = [
+const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Home",
     url: "/",
@@ -30,57 +28,27 @@ export const NAV_ITEMS: Array<NavItem> = [
     url: "/about",
   },
   {
-    label: "Blog",
-    url: "/blog",
+    label: "Projects",
+    url: "/projects",
   },
 ];
-const Navbar = () => {
-  const path = usePathname();
+const Navbar2 = () => {
   const { systemTheme, theme, setTheme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
   const [navbar, setNavbar] = useState(false);
-
-  const [popUp, setPopUp] = useState(false);
-  const [show, setShow] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  const controlNavbar = () => {
-    if (window.scrollY > lastScrollY) {
-      // if scroll down hide the navbar
-      setShow(false);
-    } else {
-      // if scroll up show the navbar
-      setShow(true);
-    }
-
-    // remember current page location to use in the next move
-    setLastScrollY(window.scrollY);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", controlNavbar);
-
-    // cleanup function
-    return () => {
-      window.removeEventListener("scroll", controlNavbar);
-    };
-  }, [lastScrollY]);
-
   return (
-    <header className="w-full max-w-7xl mx-auto px-6 md:px-20 py-5  fixed top-0 z-50">
+    <header className="pointer-events-none relative z-50 flex flex-none flex-col">
       <div className="justify-between md:items-center flex">
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-2xl font-bold dark:text-white">
-              {path !== "/id" && (
-                <Image
-                  className={`rounded-full`}
-                  src="/profile.jpg"
-                  alt=""
-                  width={50}
-                  height={50}
-                />
-              )}
+              <Image
+                className={`rounded-full`}
+                src="/profile.jpg"
+                alt=""
+                width={50}
+                height={50}
+              />
             </h2>
           </div>
           {/* <div className="md:hidden">
@@ -119,9 +87,6 @@ const Navbar = () => {
         <div className={`flex items-center gap-5`}>
           <div
             className={`rounded-[20px] dark:bg-[#242424] px-4 py-2 flex gap-3 md:hidden`}
-            onClick={() => {
-              setPopUp(true);
-            }}
           >
             Menu <ArrowDown2 className={`w-4 `} />
           </div>
@@ -148,15 +113,27 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      {popUp && (
-        <NavMenu
-          onClose={() => {
-            setPopUp(false);
-          }}
-        />
-      )}
+      <div
+        className={`order-last mt-[calc(theme(spacing.16)-theme(spacing.3))]`}
+      ></div>
+      <div className={`sm:px-8 top-0 order-last -mb-3 pt-3`}></div>
+      <div className={`top-0 z-10 h-16 pt-6`}>
+        <div
+          className={`sm:px-8 top-[var(--header-top,theme(spacing.6))] w-full`}
+        >
+          <div className={`mx-auto w-full max-w-7xl lg:px-8`}>
+            <div className={`relative px-4 sm:px-8 lg:px-12`}>
+              <div className={`mx-auto max-w-2xl lg:max-w-5xl`}>
+                <div className={`relative flex gap-4`}>
+                  <div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
   );
 };
 
-export default Navbar;
+export default Navbar2;

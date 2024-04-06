@@ -13,7 +13,7 @@ const HeroSection = () => {
   const t = useTranslations("Index");
   return (
     <section id="home">
-      <div className="flex flex-col md:text-left  py-16 md:py-32">
+      <div className="flex flex-col md:text-left ">
         <div className={`md:w-1/5`}>
           <Image
             className={`rounded-full w-20 h-20 md:w-28 md:h-28`}

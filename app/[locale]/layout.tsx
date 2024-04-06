@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./_components/Organisms/Navbar/page";
 import { ThemeProvider } from "next-themes";
 import Providers from "./providers";
+import Footer from "./_components/Organisms/Footer/page";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -21,7 +22,13 @@ export default function RootLayout({
   return (
     <html lang={locale}>
       <body className={`max-w-7xl bg-[#F4F4F4] mx-auto dark:bg-[#101010]`}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <Navbar />
+          <main className="max-w-7xl mx-auto bg-[#FFFFFF] dark:bg-[#242424] px-8 md:px-16 lg:px-32 pb-12 pt-48">
+            {children}
+          </main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
