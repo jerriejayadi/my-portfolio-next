@@ -10,9 +10,9 @@ export default function About() {
     <div
       className={`grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12 `}
     >
-      <div>
+      <div className={`sm:pl-20`}>
         <Image
-          className={`rounded-3xl pl-20`}
+          className={`rounded-3xl`}
           alt=""
           src={`/profile.jpg`}
           width={500}

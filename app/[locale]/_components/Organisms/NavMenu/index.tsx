@@ -8,8 +8,9 @@ interface NavMenuProps {
 const NavMenu = ({ onClose }: NavMenuProps) => {
   return (
     <div
-      className={`fixed inset-0 z-50 bg-zinc-800/40 backdrop-blur-sm dark:bg-black/80`}
+      className={`min-h-screen fixed inset-0 z-50 bg-zinc-800/40 backdrop-blur-sm dark:bg-black/80`}
       onClick={(e) => {
+        e.preventDefault();
         onClose();
       }}
     >

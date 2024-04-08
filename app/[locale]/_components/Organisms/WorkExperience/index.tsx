@@ -26,12 +26,10 @@ export default function WorkExperience() {
       ))}
 
       <div>
-        <a
-          href={`/CV.pdf`}
-          download
-          className="w-full px-3 py-2 text-sm font-bold transition duration-100 rounded-md bg-primaryOrange hover:bg-secondaryOrange text-primaryBlack"
-        >
-          Download CV
+        <a href={`/CV.pdf`} download={`CV_Tjiauw Jerrie Jayadi.pdf`}>
+          <button className="w-full px-3 py-2 text-sm font-bold transition duration-100 rounded-md bg-primaryOrange hover:bg-secondaryOrange text-primaryBlack">
+            Download CV
+          </button>
         </a>
       </div>
     </div>

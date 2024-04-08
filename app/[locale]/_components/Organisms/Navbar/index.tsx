@@ -73,7 +73,11 @@ const Navbar = () => {
 
   if (mounted) {
     return (
-      <header className="w-full max-w-7xl mx-auto px-6 md:px-20 py-5  fixed top-0 z-50">
+      <header
+        className={`w-full max-w-7xl mx-auto px-6 md:px-20 py-5  fixed top-0 z-50 transition-all duration-100 ${
+          show ? "translate-y-0" : "-translate-y-full"
+        }`}
+      >
         <div className="justify-between md:items-center flex">
           <div className="flex items-center justify-between">
             <div>
