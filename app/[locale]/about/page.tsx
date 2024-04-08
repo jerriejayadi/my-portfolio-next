@@ -1,9 +1,11 @@
 import { Instagram } from "iconsax-react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { AiFillGithub } from "react-icons/ai";
 import { CiLinkedin, CiMail } from "react-icons/ci";
 
-export default function Home() {
+export default function About() {
+  const t = useTranslations("about");
   return (
     <div
       className={`grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12 `}
@@ -19,37 +21,25 @@ export default function Home() {
       </div>
 
       <div className={`lg:order-first lg:row-span-2`}>
-        <div className={`text-5xl font-bold mb-10`}>
-          I’m Jerrie Jayadi, Front End Developer Indonesia
+        <div className={`text-4xl font-bold mb-10 sm:text-5xl`}>
+          {t("title")}
         </div>
         <div>
-          I started my journey as a Front End Developer as a Gamers when I was
-          in elementary school. I was still an anti-social kid at that time, so
-          I played a lot with my computer.
-          <br />
-          <br />
-          Growing up as a kid who plays a lot of computer AND an introvert, when
-          the adults are asking me &quot;what is your dreams?&quot; I just
-          answered them &quot;I wanna be a programmer&quot; so that I can evade
-          the conversation quickly.
-          <br />
-          <br />
-          Thanks to the almighty Lord, in High School, there is a computer class
-          where they taught basic Web Programming, from HTML, CSS, PHP and
-          JavaScript. That is my first milestone as a programmer, especially web
-          development. During my days in Universities, i get to learn how to use
-          frameworks such as bootstraps.
-          <br />
-          <br />
-          Today, I am here as a Front End Developer thanks to the journey that
-          God let me through. Looking back to how I passed those days, I
-          can&apos;t help but feel grateful overtime. It&apos;s all because of
-          God and only God. Without His power, I don&apos;t think I&apos;ll make
-          it to this point.
+          {t.rich("desc", {
+            guidelines: (chunk) => (
+              <>
+                <br />
+                <br />
+                {chunk}
+              </>
+            ),
+          })}
         </div>
       </div>
 
-      <div className={`pl-20 flex flex-col gap-4 divide-y-2 divide-gray-500`}>
+      <div
+        className={`sm:pl-20 flex flex-col gap-4 divide-y-2 divide-gray-500`}
+      >
         <div className={`flex flex-col gap-4`}>
           <div className={``}>
             <a

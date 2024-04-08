@@ -4,16 +4,10 @@ interface WorkExperienceProps {}
 
 const experienceList = [
   {
-    companyName: "Nanovest",
-    companyLogo: "/logo192.png",
+    companyName: "Nanobyte",
+    companyLogo: "/nanobyte.jpg",
     jobPosition: "Front End Developer Support",
     year: "2022-present",
-  },
-  {
-    companyName: "AiDiTech",
-    companyLogo: "/logo192.png",
-    jobPosition: "Researchers",
-    year: "2021-2022",
   },
 ];
 
@@ -32,9 +26,13 @@ export default function WorkExperience() {
       ))}
 
       <div>
-        <button className="w-full px-3 py-2 text-sm font-bold transition duration-100 rounded-md bg-primaryOrange hover:bg-secondaryOrange text-primaryBlack">
+        <a
+          href={`/CV.pdf`}
+          download
+          className="w-full px-3 py-2 text-sm font-bold transition duration-100 rounded-md bg-primaryOrange hover:bg-secondaryOrange text-primaryBlack"
+        >
           Download CV
-        </button>
+        </a>
       </div>
     </div>
   );

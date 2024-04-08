@@ -4,7 +4,7 @@ import {
   ArrowLeft,
   Back,
 } from "iconsax-react";
-import Navbar from "../../_components/Organisms/Navbar/page";
+import Navbar from "../../_components/Organisms/Navbar";
 import Link from "next/link";
 
 const BlogDetail = ({ params }: { params: { title: string } }) => {

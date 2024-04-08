@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "./_components/Organisms/Navbar/page";
+import Navbar from "./_components/Organisms/Navbar";
 import { ThemeProvider } from "next-themes";
 import Providers from "./providers";
-import Footer from "./_components/Organisms/Footer/page";
+import Footer from "./_components/Organisms/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

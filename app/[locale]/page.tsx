@@ -1,19 +1,21 @@
 import Image from "next/image";
-import HeroSection from "./_components/HeroSection/page";
-import Navbar from "./_components/Organisms/Navbar/page";
-import ArticleSection from "./_components/ArticleSection/page";
+import HeroSection from "./_components/HeroSection";
+import Navbar from "./_components/Organisms/Navbar";
+import ArticleSection from "./_components/ArticleSection";
 import WorkExperience from "./_components/Organisms/WorkExperience";
 import { AiOutlineMail } from "react-icons/ai";
-import Footer from "./_components/Organisms/Footer/page";
-import Navbar2 from "./_components/Organisms/Navbar2/page";
+import Footer from "./_components/Organisms/Footer";
+import Navbar2 from "./_components/Organisms/Navbar2";
 
 export default function Home() {
   return (
-    <>
+    <main>
       <div className={`w-full`}>
         <HeroSection />
       </div>
-      <div className={`flex flex-col md:flex-row mt-24 justify-between gap-24 md:gap-0`}>
+      <div
+        className={`flex flex-col md:flex-row mt-24 justify-between gap-24 md:gap-0`}
+      >
         <div className={`flex flex-col w-full md:w-1/2 gap-10 md:-ml-6`}>
           <ArticleSection
             date={"5 September 2023"}
@@ -64,6 +66,6 @@ export default function Home() {
           <WorkExperience />
         </div>
       </div>
-    </>
+    </main>
   );
 }

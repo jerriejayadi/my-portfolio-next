@@ -1,5 +1,5 @@
 import { CloseCircle } from "iconsax-react";
-import { NAV_ITEMS } from "../Navbar/page";
+import { NAV_ITEMS } from "../Navbar";
 import Link from "next/link";
 
 interface NavMenuProps {

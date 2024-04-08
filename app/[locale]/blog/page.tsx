@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { AiOutlineMail } from "react-icons/ai";
-import ArticleSection from "../_components/ArticleSection/page";
-import HeroSection from "../_components/HeroSection/page";
-import Footer from "../_components/Organisms/Footer/page";
-import Navbar from "../_components/Organisms/Navbar/page";
+import ArticleSection from "../_components/ArticleSection";
+import HeroSection from "../_components/HeroSection";
+import Footer from "../_components/Organisms/Footer";
+import Navbar from "../_components/Organisms/Navbar";
 import WorkExperience from "../_components/Organisms/WorkExperience";
 
 export default function Blog() {
@@ -47,7 +47,6 @@ export default function Blog() {
           url={`/blog/article3`}
         />
       </div>
-      
     </>
   );
 }
