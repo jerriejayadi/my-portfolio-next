@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { ChangeEvent, ReactEventHandler, useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import {
   ArrowDown,
@@ -14,6 +14,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import NavMenu from "../NavMenu";
+import { useLocale } from "next-intl";
 
 interface NavItem {
   label: string;
@@ -41,7 +42,7 @@ const Navbar = () => {
   const [mounted, setMounted] = useState<boolean>(false);
   const [navbar, setNavbar] = useState(false);
 
-  const [popUp, setPopUp] = useState(false);
+  const [popUp, setPopUp] = useState<boolean>(false);
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -70,6 +71,12 @@ const Navbar = () => {
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  const router = useRouter();
+  const locale = useLocale();
+  const onSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    router.replace(`/${e.target.value}`);
+  };
 
   if (mounted) {
     return (
@@ -145,15 +152,21 @@ const Navbar = () => {
                 </button>
               )}
             </div>
+            <div>
+              <select defaultValue={locale} onChange={onSelectChange}>
+                <option value="id">ID</option>
+                <option value="en">EN</option>
+              </select>
+            </div>
           </div>
         </div>
-        {popUp && (
-          <NavMenu
-            onClose={() => {
-              setPopUp(false);
-            }}
-          />
-        )}
+
+        <NavMenu
+          open={popUp}
+          onClose={() => {
+            setPopUp(false);
+          }}
+        />
       </header>
     );
   }

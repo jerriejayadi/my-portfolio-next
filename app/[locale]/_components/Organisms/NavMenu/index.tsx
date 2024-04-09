@@ -1,21 +1,26 @@
 import { CloseCircle } from "iconsax-react";
 import { NAV_ITEMS } from "../Navbar";
 import Link from "next/link";
+import { useEffect } from "react";
 
 interface NavMenuProps {
+  open: boolean;
   onClose: () => void;
 }
-const NavMenu = ({ onClose }: NavMenuProps) => {
+const NavMenu = ({ open, onClose }: NavMenuProps) => {
   return (
     <div
-      className={`min-h-screen fixed inset-0 z-50 bg-zinc-800/40 backdrop-blur-sm dark:bg-black/80`}
+      className={`h-screen fixed inset-0  bg-zinc-800/40 backdrop-blur-sm dark:bg-black/80 transition-all duration-200 ${
+        open ? "opacity-100 z-50 " : "opacity-0 -z-50 "
+      }`}
       onClick={(e) => {
-        e.preventDefault();
         onClose();
       }}
     >
       <div
-        className={`fixed inset-x-4 top-8 z-50 origin-top rounded-3xl bg-white p-8 ring-1 ring-zinc-900/5 dark:bg-zinc-900 dark:ring-zinc-800`}
+        className={`fixed inset-x-4 top-8 z-50 origin-top rounded-3xl bg-white p-8 ring-1 ring-zinc-900/5 dark:bg-zinc-900 dark:ring-zinc-800 transition-all duration-300 ${
+          open ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 "
+        }`}
         onClick={(e) => {
           e.stopPropagation();
         }}
