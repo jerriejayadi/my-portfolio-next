@@ -75,7 +75,10 @@ const Navbar = () => {
   const router = useRouter();
   const locale = useLocale();
   const onSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    router.replace(`/${e.target.value}`);
+    const paths = path.split(`/`);
+    paths[1] = e.target.value;
+    const newPaths = paths.join(`/`);
+    router.replace(newPaths);
   };
 
   if (mounted) {
@@ -88,7 +91,7 @@ const Navbar = () => {
         <div className="justify-between md:items-center flex">
           <div className="flex items-center justify-between">
             <div>
-              {path !== "/id" && (
+              {path === "/" && (
                 <Image
                   className={`rounded-full`}
                   src="/profile.jpg"
